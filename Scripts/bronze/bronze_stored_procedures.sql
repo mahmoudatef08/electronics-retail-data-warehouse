@@ -9,9 +9,8 @@ BEGIN
 	
 	TRUNCATE TABLE bronze.customers ;
     COPY bronze.customers
-    FROM '/run/media/mahmoud-atef/Data/Projects/electronics-retail-data-warehouse/Datasets/Customers.csv' 
-    DELIMITER ',' 
-    CSV HEADER;
+    FROM '/run/media/mahmoud-atef/Data/Projects/electronics-retail-data-warehouse/Datasets/Customers.csv'
+    WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'LATIN1');
 
 	RAISE NOTICE 'Finish Importing Data From Customers Table' ;
 
