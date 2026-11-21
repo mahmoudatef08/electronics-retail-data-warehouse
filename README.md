@@ -24,7 +24,7 @@ It turns six raw CSV files of an electronics retailer (customers, products, stor
 
 ## Architecture
 
-![Data Architecture](docs/images/01_data_architecture.png)
+![Data Architecture](Docs/data_architecture.png)
 
 | Layer | Purpose | Objects |
 |---|---|---|
@@ -81,7 +81,7 @@ All Gold objects are **views** (one script per object in `scripts/gold/`):
 
 ## Data Model
 
-![Data Model](docs/images/03_data_model.png)
+![Data Model](Docs/data_model.png)
 
 `fact_sales` is joined to `dim_date` twice (order date and delivery date). The delivery relationship is optional because most order lines have no delivery date.
 
@@ -89,11 +89,11 @@ All Gold objects are **views** (one script per object in `scripts/gold/`):
 
 Data integration, source to Gold:
 
-![Data Integration](docs/images/02_data_integration.png)
+![Data Integration](Docs/data_integration.png)
 
 Silver to Gold in detail:
 
-![Data Flow Silver to Gold](docs/images/04_data_flow_silver_to_gold.png)
+![Data Flow Silver to Gold](Docs/data_flow.png)
 
 ## Business Logic
 
@@ -134,18 +134,16 @@ Checks performed on every layer: row counts, duplicate keys, unwanted spaces, `N
 ```
 electronics-retail-data-warehouse/
 ├── Datasets/                 # source CSV files
-├── docs/
-│   └── images/               # architecture, integration, data model and data flow diagrams
+├── docs/                     # architecture, integration, data model and data flow diagrams
 ├── scripts/
 │   ├── bronze/               # DDL + load procedure (bronze.load_bronze)
 │   ├── silver/               # DDL + transformation / load scripts
 │   └── gold/
-│       ├── 00_gold_schema.sql
-│       ├── 01_dim_customers.sql
-│       ├── 02_dim_products.sql
-│       ├── 03_dim_stores.sql
-│       ├── 04_dim_date.sql
-│       └── 05_fact_sales.sql
+│       ├── dim_customers.sql
+│       ├── dim_products.sql
+│       ├── dim_stores.sql
+│       ├── dim_date.sql
+│       └── fact_sales.sql
 ├── tests/                    # data quality checklists
 └── README.md
 ```
@@ -204,4 +202,4 @@ PostgreSQL · PL/pgSQL · SQL
 
 ---
 
-*Author: Mahmoud Atef*
+*Author: Mahmoud Atef ( Junior Data Engineer ) *
